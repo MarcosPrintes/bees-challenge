@@ -1,9 +1,11 @@
 import { ThemeProvider } from '@/theme/ThemeProvider';
 
+import { Login } from '@/pages/Login';
+
 function App() {
   return (
     <ThemeProvider>
-      <h1>Bees challenge</h1>
+      <Login />
     </ThemeProvider>
   );
 }
