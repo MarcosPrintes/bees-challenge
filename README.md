@@ -7,4 +7,4 @@ Para as configurações iniciais do projeto foram utilizadas as seguintes ferram
 - [craco](https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation), uma camada de configuração para projetos criados com CRA
 - craco-alias
 - [Styled components](https://styled-components.com/) para a escrita dos estilos dos componentes 
-
+- Polished
