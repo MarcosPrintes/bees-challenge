@@ -1,4 +1,5 @@
 import { Tag } from '@/components/Tag';
+import { Brewery } from '@/store/ducks/breweries/types';
 
 import {
   Container,
@@ -11,7 +12,14 @@ import {
   IconTrash,
 } from './styles';
 
-export const Card = () => {
+interface CardProps {
+  brewery: Brewery;
+}
+
+export const Card = ({ brewery }: CardProps) => {
+  const { name, city, state, country, brewery_type, postal_code, phone } =
+    brewery;
+
   return (
     <Container>
       <CardDeleteContainer>
@@ -20,10 +28,12 @@ export const Card = () => {
         </CardDeleteButton>
       </CardDeleteContainer>
       <Cardinformations>
-        <CardTitle> 10-56 Brewing Company </CardTitle>
-        <CardAdress> 400 Brown Cir Knox, Indiana - United States </CardAdress>
+        <CardTitle> {name} </CardTitle>
+        <CardAdress> {`${city}, ${state} - ${country}`} </CardAdress>
         <CardTags>
-          <Tag />
+          <Tag tagType="type" text={brewery_type} />
+          <Tag tagType="place" text={postal_code} />
+          <Tag tagType="phone" text={phone} />
         </CardTags>
       </Cardinformations>
     </Container>

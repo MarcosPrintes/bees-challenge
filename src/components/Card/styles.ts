@@ -46,4 +46,9 @@ export const CardAdress = styled.p`
   margin-bottom: 3rem;
 `;
 
-export const CardTags = styled.div``;
+export const CardTags = styled.div`
+  .tag {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+`;
