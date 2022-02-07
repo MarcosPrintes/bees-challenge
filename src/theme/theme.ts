@@ -10,7 +10,7 @@ export const Theme: DefaultTheme = {
     primaryDark: '',
     primaryLight: '',
     onPrimaryLight: '',
-    secondary: '5D5FEF',
+    secondary: '#5D5FEF',
     secondaryDark: '',
     secondaryLight: '',
     background: '#edf1f5',

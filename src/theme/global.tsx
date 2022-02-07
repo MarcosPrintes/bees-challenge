@@ -7,17 +7,21 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
     html {
-        @media (max-width: 1080px) {
+        font-size: 62.5%;
+
+        /* @media (max-width: 1080px) {
             font-size: 93.75%;
         }
+
         @media (max-width: 720px) {
             font-size: 87.75%;
-        }
+        } */
+
         -webkit-font-smoothing: antialiased;
     }
     body {
         margin: 0;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Work Sans', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow: hidden;
