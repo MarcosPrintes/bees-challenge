@@ -9,4 +9,5 @@ export const Container = styled.div`
 export const Content = styled.div`
   flex: 1;
   background: #fffef0;
+  padding: 17rem 9.9rem 3rem;
 `;

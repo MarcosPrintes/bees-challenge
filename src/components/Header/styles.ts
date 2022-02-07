@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ReactComponent as BackIcon } from '@/assets/back-arrow.svg';
+import { ReactComponent as BackIcon } from '@/assets/ic-back-arrow.svg';
 
 export const Container = styled.header`
   display: flex;

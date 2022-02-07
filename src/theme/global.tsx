@@ -8,8 +8,8 @@ export const GlobalStyles = createGlobalStyle`
     }
     html {
         font-size: 62.5%;
-
-        /* @media (max-width: 1080px) {
+/* 
+        @media (max-width: 1080px) {
             font-size: 93.75%;
         }
 
@@ -43,5 +43,9 @@ export const GlobalStyles = createGlobalStyle`
     }
     input {
         outline: none;
+    }
+
+    button {
+        cursor: pointer;
     }
 `;
