@@ -8,7 +8,7 @@ const INITIAL_STATE: User = {
 const reducer: Reducer<User> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ActionTypesUser.USER_LOGIN_SUCCESS:
-      return { ...state, name: action.payload };
+      return { ...state, name: action.payload.name };
     case ActionTypesUser.USER_LOGIN_FAIL:
       return { ...state, loading: false, error: true };
     case ActionTypesUser.USER_LOGOUT:

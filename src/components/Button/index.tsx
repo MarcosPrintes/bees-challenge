@@ -1,8 +1,11 @@
 import { ButtonHTMLAttributes } from 'react';
 import { Container } from './styles';
 
-export const Button = ({
-  ...rest
-}: ButtonHTMLAttributes<HTMLButtonElement>) => {
-  return <Container>Teste</Container>;
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  text: string;
+  disabled: boolean;
+}
+
+export const Button = ({ text, disabled, ...rest }: IProps) => {
+  return <Container disabled={disabled}>{text}</Container>;
 };

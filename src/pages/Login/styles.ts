@@ -1,4 +1,4 @@
-import { Input } from '@/components/Input';
+import { Theme } from './../../theme/theme';
 import styled from 'styled-components';
 import { ReactComponent as Logo } from '@/assets/logo.svg';
 
@@ -41,4 +41,9 @@ export const Form = styled.form`
       margin-right: 0.5rem;
     }
   }
+`;
+
+export const ErrorMssage = styled.p`
+  text-align: center !important;
+  color: ${({ theme }) => theme.colors.error};
 `;
