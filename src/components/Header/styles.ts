@@ -21,13 +21,25 @@ export const BackButton = styled.button.attrs({
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.black};
   font-weight: 400;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 2rem;
+  }
 `;
 export const BackButtonIcon = styled(BackIcon)`
   margin-right: 1rem;
+
+  @media screen and (max-width: 1024px) {
+    width: 3rem;
+  }
 `;
 
 export const UserName = styled.div`
   color: ${({ theme }) => theme.colors.black};
   font-size: 3rem;
   text-transform: capitalize;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 2rem;
+  }
 `;

@@ -9,12 +9,24 @@ export const Container = styled.div`
   width: 100vw;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 1024px) {
+    padding: 3rem;
+    justify-content: flex-start;
+  }
 `;
 
 export const LogoSvg = styled(Logo)`
   position: absolute;
   left: 2.9rem;
   bottom: 1.5rem;
+
+  @media screen and (max-width: 1024px) {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    max-width: 90%;
+  }
 `;
 
 export const Form = styled.form`

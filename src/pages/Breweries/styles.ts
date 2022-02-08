@@ -14,9 +14,18 @@ export const Content = styled.div`
   padding: 9.8rem 9.9rem 3rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
   row-gap: 3rem;
   overflow-y: scroll;
   justify-items: center;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 765px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const LoadingSvg = styled(Loading)`

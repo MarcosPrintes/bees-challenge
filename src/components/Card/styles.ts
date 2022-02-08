@@ -7,7 +7,7 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.black};
   border-radius: 0.4rem;
-  width: 38.2rem;
+  max-width: 38.2rem;
   minb-height: 28.2rem;
 `;
 
