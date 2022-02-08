@@ -9,6 +9,7 @@ import { Container, Form, LogoSvg, ErrorMssage } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionLoginRequest } from '@/store/ducks/user/actions';
 import { State } from '@/store';
+import { useNavigate } from 'react-router-dom';
 
 interface IFormInputs {
   name: string;
@@ -24,6 +25,7 @@ const formSchema = yup.object().shape({
 });
 
 export const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { name } = useSelector((user: State) => user.user);
@@ -36,8 +38,10 @@ export const Login = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmit = ({ name }: IFormInputs) =>
+  const onSubmit = ({ name }: IFormInputs) => {
     dispatch(actionLoginRequest({ name }));
+    navigate('/breweries');
+  };
 
   return (
     <Container>

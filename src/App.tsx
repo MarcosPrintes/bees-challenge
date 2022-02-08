@@ -1,11 +1,11 @@
 import { ThemeProvider } from '@/theme/ThemeProvider';
 
-import { Breweries } from '@/pages/Breweries';
+import { AppRoutes } from './routes';
 
 function App() {
   return (
     <ThemeProvider>
-      <Breweries />
+      <AppRoutes />
     </ThemeProvider>
   );
 }

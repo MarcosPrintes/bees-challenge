@@ -16,8 +16,15 @@ export const BackButton = styled.button.attrs({
   background: transparent;
   border: unset;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: 400;
 `;
-export const BackButtonIcon = styled(BackIcon)``;
+export const BackButtonIcon = styled(BackIcon)`
+  margin-right: 1rem;
+`;
 
 export const UserName = styled.div`
   color: ${({ theme }) => theme.colors.black};
