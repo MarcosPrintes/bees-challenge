@@ -8,7 +8,7 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.black};
   border-radius: 0.4rem;
   width: 38.2rem;
-  height: 28.2rem;
+  minb-height: 28.2rem;
 `;
 
 export const Cardinformations = styled.div`

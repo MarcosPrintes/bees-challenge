@@ -1,17 +1,25 @@
-import { call, put } from 'redux-saga/effects';
+import { actionGetBreweries } from '@/store/ducks/breweries/actions';
+import { call, put, select, StrictEffect } from 'redux-saga/effects';
 
 import { getBreweries } from '@/services/api';
 
 import { actionGetBreweriesSuccess, actionGetBreweriesFail } from './actions';
-import { Brewery } from './types';
 
-export function* sagaGetBreweries(): Generator {
+import { State } from '@/store';
+
+export function* sagaGetBreweries({
+  payload,
+}: ReturnType<typeof actionGetBreweries>): Generator<StrictEffect, void, any> {
   try {
-    const response = yield call(getBreweries);
-    yield put(actionGetBreweriesSuccess(response as Brewery[]));
-    console.log('success saga');
+    const getList = (state: State) => state.breweries;
+    const { list }: ReturnType<typeof getList> = yield select(getList);
+
+    const response = yield call(getBreweries, payload);
+
+    const newList = [...list, ...response];
+
+    yield put(actionGetBreweriesSuccess(newList));
   } catch (error) {
-    console.log(error);
     yield put(actionGetBreweriesFail());
   }
 }

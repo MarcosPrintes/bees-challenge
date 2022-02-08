@@ -1,11 +1,10 @@
 import { action } from 'typesafe-actions';
 import { ActionTypesBrewery, Brewery } from './types';
 
-export const actionGetBreweries = () =>
-  action(ActionTypesBrewery.GET_BREWERIES);
+export const actionGetBreweries = (page: number) =>
+  action(ActionTypesBrewery.GET_BREWERIES, page);
 
 export const actionGetBreweriesSuccess = (listBreweries: Brewery[]) => {
-  console.log('success action', listBreweries);
   return action(ActionTypesBrewery.GET_BREWERIES_SUCCESS, listBreweries);
 };
 

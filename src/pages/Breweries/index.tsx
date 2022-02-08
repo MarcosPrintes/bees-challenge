@@ -2,7 +2,7 @@ import { Header } from '@/components/Header';
 import { Card } from '@/components/Card';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   actionGetBreweries,
   actionGetBreweriesSuccess,
@@ -14,31 +14,42 @@ import { Container, Content, LoadingSvg } from './styles';
 export const Breweries = () => {
   const dispatch = useDispatch();
   const { list, loading } = useSelector((state: State) => state.breweries);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    dispatch(actionGetBreweries());
-  }, [dispatch]);
+    dispatch(actionGetBreweries(currentPage));
+  }, [dispatch, currentPage]);
 
   function handleOnDeleteCard(id: number) {
     const newList = list.filter((el) => el.id !== id);
     dispatch(actionGetBreweriesSuccess(newList));
   }
 
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setCurrentPage((currentPageInsideState) => currentPageInsideState + 1);
+      }
+    });
+
+    intersectionObserver.observe(document.getElementById('target') as Element);
+
+    return () => intersectionObserver.disconnect();
+  }, []);
+
   return (
     <Container>
       <Header />
       <Content>
-        {loading ? (
-          <LoadingSvg />
-        ) : (
-          list.map((item) => (
-            <Card
-              onDeleteCard={handleOnDeleteCard}
-              key={item.id}
-              brewery={item}
-            />
-          ))
-        )}
+        {list.map((item) => (
+          <Card
+            onDeleteCard={handleOnDeleteCard}
+            key={item.id}
+            brewery={item}
+          />
+        ))}
+        {loading && <LoadingSvg />}
+        <div id="target"></div>
       </Content>
     </Container>
   );

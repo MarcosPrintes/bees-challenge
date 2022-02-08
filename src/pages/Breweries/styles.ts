@@ -21,8 +21,4 @@ export const Content = styled.div`
 
 export const LoadingSvg = styled(Loading)`
   width: 10rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 `;
