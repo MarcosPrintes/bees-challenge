@@ -6,6 +6,7 @@ export enum ActionTypesBrewery {
 
 export interface BreweryState {
   list: Brewery[];
+  loading: boolean;
 }
 
 export interface Brewery {

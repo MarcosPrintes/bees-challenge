@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { ReactComponent as Loading } from '@/assets/loading.svg';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,4 +17,12 @@ export const Content = styled.div`
   row-gap: 3rem;
   overflow-y: scroll;
   justify-items: center;
+`;
+
+export const LoadingSvg = styled(Loading)`
+  width: 10rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

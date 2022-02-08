@@ -1,7 +1,6 @@
 import { Header } from '@/components/Header';
 import { Card } from '@/components/Card';
 
-import { Container, Content } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import {
@@ -10,9 +9,11 @@ import {
 } from '@/store/ducks/breweries/actions';
 import { State } from '@/store';
 
+import { Container, Content, LoadingSvg } from './styles';
+
 export const Breweries = () => {
   const dispatch = useDispatch();
-  const { list } = useSelector((state: State) => state.breweries);
+  const { list, loading } = useSelector((state: State) => state.breweries);
 
   useEffect(() => {
     dispatch(actionGetBreweries());
@@ -27,13 +28,17 @@ export const Breweries = () => {
     <Container>
       <Header />
       <Content>
-        {list.map((item) => (
-          <Card
-            onDeleteCard={handleOnDeleteCard}
-            key={item.id}
-            brewery={item}
-          />
-        ))}
+        {loading ? (
+          <LoadingSvg />
+        ) : (
+          list.map((item) => (
+            <Card
+              onDeleteCard={handleOnDeleteCard}
+              key={item.id}
+              brewery={item}
+            />
+          ))
+        )}
       </Content>
     </Container>
   );
