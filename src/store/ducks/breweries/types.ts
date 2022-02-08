@@ -24,4 +24,5 @@ export interface Brewery {
   latitude: string;
   phone: string;
   website_url: string;
+  newtag: string;
 }

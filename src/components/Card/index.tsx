@@ -11,18 +11,49 @@ import {
   CardTags,
   IconTrash,
 } from './styles';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { State } from '@/store';
+import { actionGetBreweriesSuccess } from '@/store/ducks/breweries/actions';
 interface CardProps {
   brewery: Brewery;
   onDeleteCard: (id: number) => void;
 }
 
 export const Card = ({ brewery, onDeleteCard }: CardProps) => {
-  const { name, city, state, country, brewery_type, postal_code, phone } =
-    brewery;
+  const dispatch = useDispatch();
+
+  const { list } = useSelector((state: State) => state.breweries);
+
+  const {
+    name,
+    city,
+    state,
+    country,
+    brewery_type,
+    postal_code,
+    phone,
+    newtag,
+  } = brewery;
 
   function handleDeleteCard() {
     onDeleteCard(brewery.id);
+  }
+
+  function handleSetNewTag(text: string) {
+    const indexOfCurrentBrewery = list.findIndex(
+      (item) => item.id === brewery.id,
+    );
+
+    if (indexOfCurrentBrewery !== -1) {
+      const newList = list.map((el) => {
+        if (el.id === brewery.id) {
+          return { ...el, newtag: text };
+        } else {
+          return el;
+        }
+      });
+      dispatch(actionGetBreweriesSuccess(newList));
+    }
   }
 
   return (
@@ -39,7 +70,17 @@ export const Card = ({ brewery, onDeleteCard }: CardProps) => {
           <Tag tagType="type" text={brewery_type} />
           <Tag tagType="place" text={postal_code} />
           <Tag tagType="phone" text={phone} />
-          <Tag tagType="add" canAddTag={true} text="add more" />
+
+          {newtag ? (
+            <Tag tagType="check" text={newtag} />
+          ) : (
+            <Tag
+              tagType="add"
+              canAddTag={true}
+              text="add more"
+              onSetNewTag={handleSetNewTag}
+            />
+          )}
         </CardTags>
       </Cardinformations>
     </Container>

@@ -10,7 +10,38 @@ export const Container = styled.div`
   min-width: 6rem;
 
   span {
-    margin-left: 1rem;
-    font-size: 1.6rem;
+    margin-left: 0.5rem;
   }
+`;
+
+interface TagTextProps {
+  showInput: boolean;
+}
+
+export const TagText = styled.span<TagTextProps>`
+  font-size: 1.6rem;
+  position: relative;
+  color: ${({ theme }) => theme.colors.black};
+
+  input {
+    position: absolute;
+    left: 0;
+    max-width: 100%;
+    pointer-events: ${({ showInput }) => (showInput ? 'auto' : 'none')};
+    opacity: ${({ showInput }) => (showInput ? 1 : 0)};
+    transition: opacity 0.3s ease;
+  }
+`;
+
+interface ButtonIconProps {
+  disabled: boolean;
+}
+
+export const ButtonIcon = styled.button.attrs<ButtonIconProps>({
+  type: 'button',
+})`
+  background: transparent;
+  border: unset;
+  cursor: ${(props) => (props.disabled ? 'unset' : 'pointer')};
+  pointer-events: ${(props) => (props.disabled ? 'none' : 'auto')};
 `;

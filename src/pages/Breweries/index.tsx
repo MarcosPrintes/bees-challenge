@@ -9,9 +9,9 @@ import {
   actionGetBreweriesSuccess,
 } from '@/store/ducks/breweries/actions';
 import { State } from '@/store';
+
 export const Breweries = () => {
   const dispatch = useDispatch();
-
   const { list } = useSelector((state: State) => state.breweries);
 
   useEffect(() => {

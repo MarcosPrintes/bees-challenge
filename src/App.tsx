@@ -1,6 +1,5 @@
 import { ThemeProvider } from '@/theme/ThemeProvider';
 
-// import { Login } from '@/pages/Login';
 import { Breweries } from '@/pages/Breweries';
 
 function App() {

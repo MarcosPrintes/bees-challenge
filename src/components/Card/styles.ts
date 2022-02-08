@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Cardinformations = styled.div`
-  padding: 1rem 2.3rem 3.5rem;
+  padding: 1rem 2rem 3.5rem;
 `;
 
 export const CardDeleteContainer = styled.div`
@@ -47,6 +47,9 @@ export const CardAdress = styled.p`
 `;
 
 export const CardTags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
   .tag {
     margin-bottom: 1rem;
     margin-right: 1rem;

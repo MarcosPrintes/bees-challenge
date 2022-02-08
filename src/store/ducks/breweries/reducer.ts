@@ -11,8 +11,7 @@ const reducer: Reducer<BreweryState> = (state = INITIAL_STATE, action) => {
     case ActionTypesBrewery.GET_BREWERIES:
       return { ...state };
     case ActionTypesBrewery.GET_BREWERIES_SUCCESS:
-      console.log('reducer', action);
-      return { ...state, list: action.payload };
+      return { ...state.list, list: action.payload };
     case ActionTypesBrewery.GET_BREWERIES_FAIL:
       return INITIAL_STATE;
     default:
