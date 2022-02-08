@@ -34,25 +34,34 @@ export const Tag = ({
 
   function handleNewTag({ target }: React.ChangeEvent<HTMLInputElement>) {
     const { value } = target;
-    value !== '' && setNewTag(value);
+    value && setNewTag(value);
   }
 
   function handleOnKeyupTag(event: React.KeyboardEvent<HTMLInputElement>) {
     const { key } = event;
     if (key === 'Escape') {
       setShowInput(false);
+      setNewTag('');
       return;
     }
 
-    if (key === 'Enter' && newTag !== '') {
+    if (key === 'Enter' && newTag) {
       onSetNewTag && onSetNewTag(newTag);
+    }
+  }
+
+  function handleOnButtonIconClick() {
+    if (showInput && newTag !== '' && onSetNewTag) {
+      onSetNewTag(newTag);
+    } else {
+      setShowInput(true);
     }
   }
 
   return (
     <Container className="tag">
-      <ButtonIcon onClick={() => setShowInput(true)} disabled={!canAddTag}>
-        {ICONS[tagType]}
+      <ButtonIcon onClick={handleOnButtonIconClick} disabled={!canAddTag}>
+        {showInput ? ICONS['check'] : ICONS[tagType]}
       </ButtonIcon>
       <TagText showInput={showInput}>
         {text}
