@@ -9,6 +9,10 @@ export const Container = styled.div`
   border-radius: 0.4rem;
   max-width: 38.2rem;
   minb-height: 28.2rem;
+
+  @media screen and (max-width: 765px) {
+    max-width: 100%;
+  }
 `;
 
 export const Cardinformations = styled.div`

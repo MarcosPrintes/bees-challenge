@@ -21,10 +21,12 @@ export const Content = styled.div`
 
   @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
+    padding: 9.8rem 5rem 6rem;
   }
 
   @media screen and (max-width: 765px) {
     grid-template-columns: repeat(1, 1fr);
+    padding: 5rem 2rem 5rem;
   }
 `;
 
