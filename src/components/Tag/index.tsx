@@ -51,7 +51,7 @@ export const Tag = ({
   }
 
   function handleOnButtonIconClick() {
-    if (showInput && newTag !== '' && onSetNewTag) {
+    if (showInput && newTag && onSetNewTag) {
       onSetNewTag(newTag);
     } else {
       setShowInput(true);

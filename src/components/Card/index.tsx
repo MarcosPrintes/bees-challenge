@@ -60,7 +60,7 @@ export const Card = ({ brewery, onDeleteCard }: CardProps) => {
     <Container>
       <CardDeleteContainer>
         <CardDeleteButton onClick={handleDeleteCard}>
-          <IconTrash />
+          <IconTrash className="icon-trash" />
         </CardDeleteButton>
       </CardDeleteContainer>
       <Cardinformations>

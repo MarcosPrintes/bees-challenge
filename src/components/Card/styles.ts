@@ -24,6 +24,7 @@ export const IconTrash = styled(Trash)`
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  transition: all 0.2s ease;
 `;
 
 export const CardDeleteButton = styled.button.attrs({
@@ -31,6 +32,12 @@ export const CardDeleteButton = styled.button.attrs({
 })`
   background: transparent;
   border: unset;
+
+  &:hover {
+    .icon-trash {
+      transform: scale(1.3);
+    }
+  }
 `;
 
 export const CardTitle = styled.h3`
