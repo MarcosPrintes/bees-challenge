@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   flex: 1;
   background: #fffef0;
-  padding: 9.8rem 9.9rem 3rem;
+  padding: 9.8rem 9.9rem 6rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
@@ -30,4 +30,9 @@ export const Content = styled.div`
 
 export const LoadingSvg = styled(Loading)`
   width: 10rem;
+  height: 6.4rem;
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
 `;

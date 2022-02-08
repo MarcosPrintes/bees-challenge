@@ -14,6 +14,9 @@ Para as configurações iniciais do projeto foram utilizadas as seguintes ferram
 Após instaldas as dependências, executar:
 ``` yarn start ``` ou ``` npm run start ```
 
+## Deploy
+Deploy realizado na vercel, [clique aqui para ver](https://bees-challenge.vercel.app/)
+
 ## Divisão de pastas
 O projeto foi divido na seguinte estrutura de pastas:
   - assets => contem os ícones
