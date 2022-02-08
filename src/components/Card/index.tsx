@@ -14,16 +14,21 @@ import {
 
 interface CardProps {
   brewery: Brewery;
+  onDeleteCard: (id: number) => void;
 }
 
-export const Card = ({ brewery }: CardProps) => {
+export const Card = ({ brewery, onDeleteCard }: CardProps) => {
   const { name, city, state, country, brewery_type, postal_code, phone } =
     brewery;
+
+  function handleDeleteCard() {
+    onDeleteCard(brewery.id);
+  }
 
   return (
     <Container>
       <CardDeleteContainer>
-        <CardDeleteButton>
+        <CardDeleteButton onClick={handleDeleteCard}>
           <IconTrash />
         </CardDeleteButton>
       </CardDeleteContainer>
@@ -34,6 +39,7 @@ export const Card = ({ brewery }: CardProps) => {
           <Tag tagType="type" text={brewery_type} />
           <Tag tagType="place" text={postal_code} />
           <Tag tagType="phone" text={phone} />
+          <Tag tagType="add" canAddTag={true} text="add more" />
         </CardTags>
       </Cardinformations>
     </Container>
